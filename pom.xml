@@ -8,15 +8,113 @@
     <artifactId>robocode</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-<dependencies>
-    <dependency>
-        <groupId>net.sf.robocode</groupId>
-        <artifactId>robocode.api</artifactId>
-        <version>1.9.3.0</version>
-    </dependency>
-</dependencies>
+    <dependencies>
+        <!-- robocode.jar -->
+        <dependency>
+            <groupId>net.sourceforge.robocode</groupId>
+            <artifactId>robocode</artifactId>
+            <version>1.9.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.robocode</groupId>
+            <artifactId>robocode.core</artifactId>
+            <version>1.9.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.robocode</groupId>
+            <artifactId>robocode.battle</artifactId>
+            <version>1.9.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.robocode</groupId>
+            <artifactId>robocode.host</artifactId>
+            <version>1.9.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.robocode</groupId>
+            <artifactId>robocode.repository</artifactId>
+            <version>1.9.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.robocode</groupId>
+            <artifactId>robocode.testing</artifactId>
+            <version>1.9.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.robocode</groupId>
+            <artifactId>picocontainer</artifactId>
+            <version>2.14.2</version>
+        </dependency>
+
+        <!-- robocode end-->
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.11.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    <properties>
+        <junit-jupiter.version>5.4.0</junit-jupiter.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
-
-
-     <!--   install:install-file -Dfile=robocode.jar -DgroupId=net.sf.robocode -DartifactId=robocode.api -Dversion=1.9.3.0 -Dpackaging=jar-->
