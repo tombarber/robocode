@@ -24,7 +24,7 @@ public class BearingUtils {
         } else if (xo < 0 && yo == 0) { // directly "west"
             bearing = 270.0;
         } else if (xo < 0 && yo > 0) { // x neg, y pos: 270 < target bearing < 360
-            bearing = 360 + arcSin; // arcsin is negative here, actuall 360 - ang
+            bearing = 360 + arcSin; // arcsin is negative here, actually 360 - ang
         }
 
         return bearing;
