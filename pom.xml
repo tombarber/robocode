@@ -8,9 +8,10 @@
     <artifactId>robocode</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-<properties>
-    <java.version>1.8</java.version>
-</properties>
+    <properties>
+        <junit-jupiter.version>5.4.0</junit-jupiter.version>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
         <!-- robocode.jar -->
@@ -81,6 +82,13 @@
 
         <dependency>
             <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>2.24.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>2.24.0</version>
             <scope>test</scope>
@@ -100,9 +108,7 @@
         </dependency>
 
     </dependencies>
-    <properties>
-        <junit-jupiter.version>5.4.0</junit-jupiter.version>
-    </properties>
+
 
     <build>
         <plugins>
