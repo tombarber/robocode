@@ -104,4 +104,17 @@ class TargetingSystemTest {
 
         assertThat(targetingSystem.getCurrentTarget().get().getName()).isEqualTo(ENEMY_ROBOT_1);
     }
+
+    @Test
+    void keepsTrackOfAllDetectedEnemies() {
+        given(scannedRobotEvent.getName()).willReturn(ENEMY_ROBOT_1);
+        targetingSystem.onScannedRobot(scannedRobotEvent);
+
+        given(scannedRobotEvent.getName()).willReturn(ENEMY_ROBOT_2);
+        targetingSystem.onScannedRobot(scannedRobotEvent);
+
+        assertThat(targetingSystem.getKnownEnemies()).hasSize(2);
+        assertThat(targetingSystem.getKnownEnemies().get(ENEMY_ROBOT_1).getName()).isEqualTo(ENEMY_ROBOT_1);
+        assertThat(targetingSystem.getKnownEnemies().get(ENEMY_ROBOT_2).getName()).isEqualTo(ENEMY_ROBOT_2);
+    }
 }

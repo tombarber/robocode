@@ -5,13 +5,17 @@ import robocode.AdvancedRobot;
 import robocode.RobotDeathEvent;
 import robocode.ScannedRobotEvent;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import static java.util.Objects.requireNonNull;
 
 public class TargetingSystem {
 
-    private AdvancedRobot robot;
+    // TODO: Remove enemies from map when they die?
+    private final AdvancedRobot robot;
+    private final Map<String, EnemyRobot> knownEnemies = new HashMap<>();
     private Optional<EnemyRobot> currentTarget;
 
     public TargetingSystem(AdvancedRobot robot) {
@@ -25,6 +29,11 @@ public class TargetingSystem {
 
     public void onScannedRobot(ScannedRobotEvent scannedRobotEvent) {
         acquireBestTarget(scannedRobotEvent);
+        addToKnownEnemies(new EnemyRobot(scannedRobotEvent));
+    }
+
+    private void addToKnownEnemies(EnemyRobot enemyRobot) {
+        knownEnemies.put(enemyRobot.getName(), enemyRobot);
     }
 
     private void acquireBestTarget(ScannedRobotEvent scannedRobotEvent) {
@@ -57,5 +66,9 @@ public class TargetingSystem {
 
     private void clearCurrentTarget() {
         currentTarget = Optional.empty();
+    }
+
+    public Map<String, EnemyRobot> getKnownEnemies() {
+        return knownEnemies;
     }
 }
