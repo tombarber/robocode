@@ -117,4 +117,5 @@ class TargetingSystemTest {
         assertThat(targetingSystem.getKnownEnemies().get(ENEMY_ROBOT_1).getName()).isEqualTo(ENEMY_ROBOT_1);
         assertThat(targetingSystem.getKnownEnemies().get(ENEMY_ROBOT_2).getName()).isEqualTo(ENEMY_ROBOT_2);
     }
+
 }
