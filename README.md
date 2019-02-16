@@ -2,9 +2,8 @@
 
 Installing robocode jars to local maven repo:
 
-1. Download + install robocode from https://sourceforge.net/projects/robocode/files/robocode/1.9.3.0/
-Need both: robocode-1.9.3.0-setup.jar and robocode.testing-1.9.3.0-setup.jar
-2. Open command prompt and cd to the libs dir
+1. From https://sourceforge.net/projects/robocode/files/robocode/1.9.3.0/ download and install both robocode-1.9.3.0-setup.jar and robocode.testing-1.9.3.0-setup.jar
+2. Open command prompt and cd to the installed robocode libs dir
 3. Run the following:
 ```
 mvn install:install-file -Dfile=robocode.jar -DartifactId=robocode  -DgroupId=net.sourceforge.robocode -Dversion=1.9.3.0 -Dpackaging=jar -DgeneratePom=true
