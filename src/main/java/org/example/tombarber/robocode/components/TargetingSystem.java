@@ -41,8 +41,24 @@ public class TargetingSystem {
                 .withVelocity(scannedRobotEvent.getVelocity())
                 .withName(scannedRobotEvent.getName())
                 .withIsSentry(scannedRobotEvent.isSentryRobot())
+                .withX(calculateEnemyX(scannedRobotEvent.getBearing(), scannedRobotEvent.getDistance()))
+                .withY(calculateEnemyY(scannedRobotEvent.getBearing(), scannedRobotEvent.getDistance()))
                 .build();
 
+    }
+
+    private double calculateEnemyX(double enemyBearing, double enemyDistance) {
+        return robot.getX() + Math.sin(Math.toRadians(getEnemyAbsoluteBearingInDegrees(enemyBearing))) * enemyDistance;
+    }
+
+    private double calculateEnemyY(double enemyBearing, double enemyDistance) {
+        return robot.getY() + Math.cos(Math.toRadians(getEnemyAbsoluteBearingInDegrees(enemyBearing))) * enemyDistance;
+    }
+
+    private double getEnemyAbsoluteBearingInDegrees(double enemyBearing) {
+        double absBearingDeg = robot.getHeading() + enemyBearing;
+        if (absBearingDeg < 0) absBearingDeg += 360;
+        return absBearingDeg;
     }
 
     private void addToKnownEnemies(EnemyRobot enemyRobot) {
