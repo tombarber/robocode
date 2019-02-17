@@ -10,7 +10,7 @@ public class EnemyRobot {
     private double distance;
     private double energy;
     private double heading;
-    private double veolocity;
+    private double velocity;
     private String name;
     private boolean isSentry;
 
@@ -20,7 +20,7 @@ public class EnemyRobot {
         this.distance = scannedRobotEvent.getDistance();
         this.energy = scannedRobotEvent.getEnergy();
         this.heading = scannedRobotEvent.getHeading();
-        this.veolocity = scannedRobotEvent.getVelocity();
+        this.velocity = scannedRobotEvent.getVelocity();
         this.name = scannedRobotEvent.getName();
         this.isSentry = scannedRobotEvent.isSentryRobot();
     }
@@ -41,8 +41,8 @@ public class EnemyRobot {
         return heading;
     }
 
-    public double getVeolocity() {
-        return veolocity;
+    public double getVelocity() {
+        return velocity;
     }
 
     public String getName() {

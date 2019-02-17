@@ -48,7 +48,7 @@ public class EnemyRobotTest {
         assertThat(enemyRobot.getBearing()).isEqualTo(bearing);
         assertThat(enemyRobot.getDistance()).isEqualTo(distance);
         assertThat(enemyRobot.getHeading()).isEqualTo(heading);
-        assertThat(enemyRobot.getVeolocity()).isEqualTo(velocity);
+        assertThat(enemyRobot.getVelocity()).isEqualTo(velocity);
         assertThat(enemyRobot.getName()).isEqualTo(name);
         assertThat(enemyRobot.isSentryRobot()).isEqualTo(isSentry);
 
