@@ -29,7 +29,20 @@ public class TargetingSystem {
 
     public void onScannedRobot(ScannedRobotEvent scannedRobotEvent) {
         acquireBestTarget(scannedRobotEvent);
-        addToKnownEnemies(new EnemyRobot(scannedRobotEvent));
+        addToKnownEnemies(buildEnemyRobot(scannedRobotEvent));
+    }
+
+    private EnemyRobot buildEnemyRobot(ScannedRobotEvent scannedRobotEvent) {
+        return EnemyRobot.EnemyRobotBuilder.builder()
+                .withEnergy(scannedRobotEvent.getEnergy())
+                .withBearing(scannedRobotEvent.getBearing())
+                .withDistance(scannedRobotEvent.getDistance())
+                .withHeading(scannedRobotEvent.getHeading())
+                .withVelocity(scannedRobotEvent.getVelocity())
+                .withName(scannedRobotEvent.getName())
+                .withIsSentry(scannedRobotEvent.isSentryRobot())
+                .build();
+
     }
 
     private void addToKnownEnemies(EnemyRobot enemyRobot) {
@@ -38,7 +51,7 @@ public class TargetingSystem {
 
     private void acquireBestTarget(ScannedRobotEvent scannedRobotEvent) {
         if (hasNoCurrentTarget() || isCurrentTarget(scannedRobotEvent.getName()) || isCloserThanCurrentTarget(scannedRobotEvent.getDistance())) {
-            currentTarget = Optional.of(new EnemyRobot(scannedRobotEvent));
+            currentTarget = Optional.of(buildEnemyRobot(scannedRobotEvent));
         }
     }
 
