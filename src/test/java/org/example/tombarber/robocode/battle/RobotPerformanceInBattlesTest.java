@@ -26,7 +26,7 @@ public class RobotPerformanceInBattlesTest extends RobotTestBed {
      */
     @Override
     public String getRobotNames() {
-        return "sample.Walls, org.example.tombarber.robocode.robots.BasicBot";
+        return "sample.Walls, org.example.tombarber.robocode.robots.TomBarberBasic";
     }
 
     /**
@@ -49,7 +49,7 @@ public class RobotPerformanceInBattlesTest extends RobotTestBed {
         BattleResults[] battleResults = event.getIndexedResults();
 
         BattleResults firstEnteredRobot = battleResults[0];
-        assertThat(firstEnteredRobot.getTeamLeaderName()).isEqualTo("org.example.tombarber.robocode.robots.BasicBot");
+        assertThat(firstEnteredRobot.getTeamLeaderName()).isEqualTo("org.example.tombarber.robocode.robots.TomBarberBasic");
 
         // Check to make sure the firstEnteredRobot won at least won over half the rounds.
         assertThat(firstEnteredRobot.getFirsts()).isGreaterThan(getNumRounds() / 2);
