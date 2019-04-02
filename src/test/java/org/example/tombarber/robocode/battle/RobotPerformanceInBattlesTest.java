@@ -1,4 +1,4 @@
-package org.example.tombarber.robocode.robots;
+package org.example.tombarber.robocode.battle;
 
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
