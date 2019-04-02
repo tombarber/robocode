@@ -1,7 +1,7 @@
 package org.example.tombarber.robocode.components;
 
 import org.example.tombarber.robocode.enemy.EnemyRobot;
-import robocode.AdvancedRobot;
+import robocode.Robot;
 import robocode.RobotDeathEvent;
 import robocode.ScannedRobotEvent;
 
@@ -14,16 +14,16 @@ import static java.util.Objects.requireNonNull;
 public class TargetingSystem {
 
     // TODO: Remove enemies from map when they die?
-    private final AdvancedRobot robot;
+    private final Robot robot;
     private final Map<String, EnemyRobot> knownEnemies = new HashMap<>();
     private Optional<EnemyRobot> currentTarget;
 
-    public TargetingSystem(AdvancedRobot robot) {
+    public TargetingSystem(Robot robot) {
         this.robot = requireNonNull(robot, "robot cannot be null");
         clearCurrentTarget();
     }
 
-    public AdvancedRobot getRobot() {
+    public Robot getRobot() {
         return robot;
     }
 

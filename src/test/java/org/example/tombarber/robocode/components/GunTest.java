@@ -1,7 +1,6 @@
 package org.example.tombarber.robocode.components;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -17,13 +16,11 @@ class GunTest {
     @Mock
     private Robot robot;
 
-    @Mock GunTemperatureControl temperatureControl;
-
     private Gun gun;
 
     @BeforeEach
     void setUp() {
-        gun = new Gun(robot, temperatureControl);
+        gun = new Gun(robot, null, null);
     }
 
     @ParameterizedTest
@@ -39,7 +36,11 @@ class GunTest {
         assertThat(gun.getBulletTravelTime(firePower, targetDistance)).isEqualTo(expectedTimeInMillis);
     }
 
-    @Test
-    void name() {
-    }
+    /*@Test
+    void aimTurnsGunToFaceTargetLocation() {
+
+        EnemyRobot enemyRobot = mock(EnemyRobot.class);
+        given(enemyRobot.getFutureX())
+        assertThat(gun.aim)
+    }*/
 }
