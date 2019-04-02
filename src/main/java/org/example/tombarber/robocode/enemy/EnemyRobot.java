@@ -63,6 +63,14 @@ public class EnemyRobot {
         return y;
     }
 
+    public double getFutureX(long time) {
+        return this.x + Math.sin(Math.toRadians(this.getHeading())) * this.velocity * time;
+    }
+
+    public double getFutureY(long time) {
+        return this.y + Math.cos(Math.toRadians(heading)) * velocity * time;
+    }
+
     public static final class EnemyRobotBuilder {
         private Double bearing;
         private Double distance;

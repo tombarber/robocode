@@ -1,6 +1,6 @@
 package org.example.tombarber.robocode.components;
 
-import robocode.AdvancedRobot;
+import robocode.Robot;
 
 import java.awt.Color;
 
@@ -10,15 +10,15 @@ public class Turret {
 
     // TODO: Break down into smaller component parts - something to aim,
 
-    private AdvancedRobot robot;
+    private Robot robot;
 
-    public Turret(AdvancedRobot robot) {
+    public Turret(Robot robot) {
         this.robot = requireNonNull(robot, "robot cannot be null");
         robot.setBulletColor(Color.RED);
         robot.setGunColor(Color.DARK_GRAY);
     }
 
-    public AdvancedRobot getRobot() {
+    public Robot getRobot() {
         return robot;
     }
 }
