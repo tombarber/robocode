@@ -5,13 +5,9 @@ import robocode.Robot;
 public class Gun {
     private Robot robot;
 
-    public Gun(Robot robot) {
+    public Gun(Robot robot, GunTemperatureControl temperatureControl) {
 
         this.robot = robot;
-    }
-
-    public boolean isCool() {
-        return robot.getGunHeat() == 0;
     }
 
     public long getBulletTravelTime(double firePower, double targetDistance) {
